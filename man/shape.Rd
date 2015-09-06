@@ -56,7 +56,7 @@ Given a scatterplot of \eqn{(x_i, y_i)}, \eqn{i=1,\ldots,n}, where \eqn{\bold{x}
 
 The "shape" routine chooses one of the shapes allowed by the user based on the minimum Bayes information criterion (BIC) or the cone information criterion (CIC). It also returns the information criterion (IC) values for shapes allowed by the user. Fitting method is constrained quadratic B-splines, number of knots depends on number of observations. The cone projection algorithm used in this routine is implemented by the \bold{R} package \bold{coneproj}. 
 
-See references cited in this section and the official manual (\url{http://cran.r-project.org/web/packages/coneproj/index.html}) for the \bold{R} package \bold{coneproj} for more details.}
+See references cited in this section and the official manual (\url{https://cran.r-project.org/package=coneproj}) for the \bold{R} package \bold{coneproj} for more details.}
 
 \references{
 

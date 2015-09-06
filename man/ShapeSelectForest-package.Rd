@@ -25,8 +25,8 @@ The main routine to select the shape for a scatterplot is "shape". See \code{\li
 \tabular{ll}{
 Package: \tab ShapeSelectForest\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2015-05-31\cr
+Version: \tab 1.1\cr
+Date: \tab 2015-09-06\cr
 License: \tab GPL (>= 2)\cr
 }
 }
