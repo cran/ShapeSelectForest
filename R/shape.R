@@ -666,7 +666,7 @@ ish = ish + 1
 		m_is[[s]] = m_is0[[sel]]
 		m_js[[s]] = m_js0[[sel]]
 	}
-	ans = list(shape = shb, ic = t(ic), thetab = t(thetab), x = x0, ymat = ymat, infocrit = infocrit, k = k, bs = bs, ijps = ijps, jjps = jjps, m_is = m_is, m_js = m_js, shp_in = bool)
+	ans = list(shape = shb, ic = t(ic), thetab = t(thetab), fit = t(fit), x = x0, ymat = ymat, infocrit = infocrit, k = k, bs = bs, ijps = ijps, jjps = jjps, m_is = m_is, m_js = m_js, shp_in = bool)
 	class(ans) = "ShapeSelectForest"
 	return (ans)
 }
@@ -858,7 +858,7 @@ sl = function(xinterp, knots, slopes) {
 #####################
 #make a plot of fits#
 ##################### 
-plotshape = function(object, ids = 1, color = "mediumorchid4", lty = 1, lwd = 1, cex = .83, cex.main = .93, form = TRUE, icpic = FALSE, both = TRUE, tt = NULL, transpose = FALSE) {
+plotshape = function(object, ids = 1, color = "mediumorchid4", lty = 1, lwd = 1, cex = .83, cex.main = .93, form = TRUE, icpic = FALSE, both = TRUE, tt = NULL, transpose = FALSE, plot = graphics:::plot) {
 	if (!inherits(object, "ShapeSelectForest")) { 
 	        warning("calling plotpersp(<fake-ShapeSelectForest-object>) ...")
         }

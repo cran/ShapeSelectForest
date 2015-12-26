@@ -2,8 +2,9 @@
 \alias{plotshape}
 \title{The Plot Routine for an Object of the Shape Routine}
 \description{This routine can plot the best shape selected by the shape routine for each scatterplot of Landsat signals. It can also plot the "BIC" or "CIC" values against shapes for each scatterplot, which is a way to verify that the best shape selected has the smallest "BIC" or "CIC" value.}
-\usage{plotshape(object, ids = 1, color = "mediumorchid4", lty = 1, lwd = 1, cex = .83, 
-cex.main = .93, form = TRUE, icpic = FALSE, both = TRUE, tt = NULL, transpose = FALSE)}
+\usage{plotshape(object, ids = 1, color = "mediumorchid4", lty = 1, lwd = 1, 
+cex = .83, cex.main = .93, form = TRUE, icpic = FALSE, both = TRUE, 
+tt = NULL, transpose = FALSE, plot = graphics:::plot)}
 \arguments{
   \item{object}{An object of the shape routine.}
  \item{ids}{An integer vector representing a subset of the columns of ymat in the shape routine. Each column of ymat is a time series of Landsat imagery. Suppose that the dimension of ymat is \eqn{n} by \eqn{k}, then each element of "ids" should be an integer between \eqn{1} and \eqn{k}. The default is ids = 1.}
@@ -17,6 +18,7 @@ cex.main = .93, form = TRUE, icpic = FALSE, both = TRUE, tt = NULL, transpose = 
  \item{both}{A logical flag. If it is TRUE, then for each element of the "ids" vector, both the fitted trajectory and the "BIC" or "CIC" plot will be made; otherwise, the "BIC" or "CIC" values will not be plotted. The default is both = TRUE.}
  \item{tt}{A vector of titles. The user can define its element as a name of the location for a scatterplot, like "Pixel 420". The default is tt = NULL.}
  \item{transpose}{A logical flag which can be used only when form is TRUE. If form is TRUE, then the user can transpose the layout the plotshape routine uses to arrange the pictures. For example, the user wants to make 2 pictures, and the default layout of this routine is 2 rows and 1 column. By setting transpose equal to TRUE, the layout will be 1 row and 2 columns. The default is transpose = TRUE.}
+\item{plot}{The genetic plot routine in graphics.}
 }
 
 \value{

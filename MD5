@@ -1,6 +1,6 @@
-5c997665880835e0414070fe13b932d9 *DESCRIPTION
-e0e0034d0bf3ed936f5a53873fd60749 *NAMESPACE
-1828e025bd04c11c597c9349345b14a0 *R/shape.R
+f7c468df08d2ce31f69f160c92b5a377 *DESCRIPTION
+4b019f8e5d972f77863fe4917e1ebd24 *NAMESPACE
+e70bafed8c0c0ae2c16b6650cef1b755 *R/shape.R
 c5dc689f5b9ae7637a359a9b40eecc62 *data/edf0s.rda
 6225a5ada640a4503dc7e534f9a715c3 *data/ymat.rda
 88d03e83e332c32b647b36453cd51748 *inst/extdata/helpexamples/MINI_B5.img
@@ -8,7 +8,7 @@ c5dc689f5b9ae7637a359a9b40eecc62 *data/edf0s.rda
 d4f2db776f7947cf916ec4868a18b2be *inst/extdata/helpexamples/MINI_FLATPRED.img
 d9c5364aff7e8a2e4db95dbd6e68214e *inst/extdata/helpexamples/MINI_NBR.img
 e6b5efafc5e42f074a3495d4c1c76ada *inst/extdata/helpexamples/MINI_NDVI.img
-dd3b9f99e6b13bb3ddebfc127da39928 *man/ShapeSelectForest-package.Rd
+29a9f408cee1a70c18890b42de234094 *man/ShapeSelectForest-package.Rd
 467ca950776ba67819695212b07481b4 *man/edf0s.Rd
 fec9796e5f68507ac0add29f50c6d06b *man/f2a.map.jpeg.Rd
 414f73a5137d7489f1f5c002cb56055a *man/f2a.raster.Rd
@@ -16,7 +16,7 @@ f4b091cae4e29140037952af551e6c15 *man/f2p.raster.Rd
 06940a46175d3b34eb499d9901492ad0 *man/flat2annual.Rd
 cb7aeca84051271d8c72cf93553ebd67 *man/flat2parameter.Rd
 a30eb0bfd4a8ff156061cd0a517a952f *man/getedf0.Rd
-17dd85a8eb8767e1a6d6ea452a09eb29 *man/plotshape.Rd
+fd6d1bb047ce25f1d77a0cb706f30b4c *man/plotshape.Rd
 14bb62057c0c90422309f415a5385fb9 *man/shape.Rd
 b96f1415d87ff6e4a2f941992db32c3e *man/shapeparams.Rd
 1d5d93fe9c02028bd34ad51c7d0f1271 *man/ymat.Rd
