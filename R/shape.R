@@ -1,4 +1,4 @@
-getedf0 = function(x, flat = TRUE, dec = TRUE, jp = TRUE, invee = TRUE, vee = TRUE, inc = TRUE, db = TRUE, nsim = 1e+3, random = FALSE, msg = TRUE) {
+getedf0 = function(x, flat = TRUE, dec = TRUE, jp = TRUE, invee = TRUE, vee = TRUE, inc = TRUE, db = TRUE, nsim = 1e+3, random = FALSE, msg = FALSE) {
 	n = length(x)
 	k0 = 4 + round(n^(1 / 7)) + 2
 	k1 = k0
@@ -253,7 +253,10 @@ if (db) {
 
 
 ## Main code
-shape = function(x, ymat, infocrit = "CIC", flat = TRUE, dec = TRUE, jp = TRUE, invee = TRUE, vee = TRUE, inc = TRUE, db = TRUE, nsim = 1e+3, edf0 = NULL, get.edf0 = FALSE, random = FALSE, msg = TRUE) {
+shape = function(x, ymat, infocrit = "CIC", flat = TRUE, dec = TRUE, jp = TRUE, invee = TRUE, vee = TRUE, inc = TRUE, db = TRUE, nsim = 1e+3, edf0 = NULL, get.edf0 = FALSE, random = FALSE, msg = FALSE) {
+#new:timer
+tm = 0
+ptm = proc.time()
 	data("edf0s", package = "ShapeSelectForest", envir = environment())
 	edf0s = get("edf0s")
 	ymat = as.matrix(ymat)
@@ -402,6 +405,7 @@ if (random) {
 	m_is = m_js = list()
 	bs = bhat = list()
 	for (s in 1:ny) {
+#print (s)
 ish = 0 
 		y = ymat[, s]
 sse1 = sum((y - mean(y))^2)
@@ -412,6 +416,7 @@ ish = ish + 1
 		sse1 = sum((y - fit[ish, ])^2)
 		if (infocrit == "BIC") {ic[s, ish] <- n * log(sse1) + log(n)}
 		if (infocrit == "CIC") {ic[s, ish] <- log(sse1) + log(2 / (n - 1) + 1)}
+#print ('flat done')
 }
 ## decreasing
 if (dec) {
@@ -424,13 +429,20 @@ ish = ish + 1
 		if (infocrit == "BIC") {ic[s, ish] <- n * log(sse2) + log(n) * edf0[ish]}
 		if (infocrit == "CIC") {ic[s, ish] <- log(sse2) + log(2 * (edf0[ish] + 1) / (n - 1 - 1.5 * edf0[ish]) + 1)}
 #new:
-		if ((2 * (edf0[ish] + 1) / (n - 1 - 1.5 * edf0[ish]) + 1) < 0) {stop ("The sample size n is too small to make a valid CIC for a decreasing shape!")}
+		if ((2 * (edf0[ish] + 1) / (n - 1 - 1.5 * edf0[ish]) + 1) < 0) {warning ("The sample size n is too small to make a valid CIC for a decreasing shape!")}
+#print ('decr done')
 }
 if (jp) {
 ish = ish + 1
+ijp = 1
+thb = 1:length(y)*0
+df = 0 
+b3 = 0 
+m_i = 0
 ## jump --need to loop through possible jumppoints
 		mj = length(delta) / n + 2
 		minsse = sum((y - mean(y))^2)
+sse3 = minsse 
 #rm_vec = NULL
 		for (i in 1:(n - 1)) {
 			smat = matrix(0, nrow = k + 3, ncol = mj)
@@ -486,12 +498,19 @@ ish = ish + 1
 		if (infocrit == "BIC") {ic[s, ish] <- n * log(sse3) + log(n) * edf0[ish]}
 		if (infocrit == "CIC") {ic[s, ish] <- log(sse3) + log(2 * (edf0[ish] + 1) / (n - 1 - 1.5 * edf0[ish]) + 1)}
 #new:
-		if ((2 * (edf0[ish] + 1) / (n - 1 - 1.5 * edf0[ish]) + 1) < 0) {stop ("The sample size n is too small to make a valid CIC for a one-jump shape!")}	
+		if ((2 * (edf0[ish] + 1) / (n - 1 - 1.5 * edf0[ish]) + 1) < 0) {warning ("The sample size n is too small to make a valid CIC for a one-jump shape!")}	
 }	
 if (invee) {
+#new:
 ish = ish + 1
+thb = 1:length(y)*0
+ch = 2
+df = 0
+b4 = 0
+pos = 0
 ## inverted vee -- need to loop through possible inter-knot spaces!!
 		minsse = sum((y - mean(y))^2)
+sse4 = minsse
 		av = slopes
 		#cv = t(delta) %*% y
 		cv = crossprod(delta, y)
@@ -512,12 +531,20 @@ ish = ish + 1
 		if (infocrit == "BIC") {ic[s, ish] <- n * log(sse4) + log(n) * edf0[ish]}
 		if (infocrit == "CIC") {ic[s, ish] <- log(sse4) + log(2 * (edf0[ish] + 1) / (n - 1 - 1.5 * edf0[ish]) + 1)}
 #new:
-		if ((2 * (edf0[ish] + 1) / (n - 1 - 1.5 * edf0[ish]) + 1) < 0) {stop ("The sample size n is too small to make a valid CIC for an inverted vee shape!")}
+		if ((2 * (edf0[ish] + 1) / (n - 1 - 1.5 * edf0[ish]) + 1) < 0) {warning ("The sample size n is too small to make a valid CIC for an inverted vee shape!")}
+#print ('invee done')
 }
 if (vee) {
+#new:
 ish = ish + 1
+thb = 1:length(y)*0
+ch = 2
+df = 0
+b5 = 0
+pos = 0
 ## vee -- need to loop through possible inter-knot spaces!!
 		minsse = sum((y - mean(y))^2)
+sse5 = minsse
 		av = slopes
 		cv = crossprod(delta, y)
 		for (j in 2:k) {
@@ -537,7 +564,8 @@ ish = ish + 1
 		if (infocrit == "BIC") {ic[s, ish] <- n * log(sse5) + log(n) * edf0[ish]}
 		if (infocrit == "CIC") {ic[s, ish] <- log(sse5) + log(2 * (edf0[ish] + 1) / (n - 1 - 1.5 * edf0[ish]) + 1)}
 #new:
-		if ((2 * (edf0[ish] + 1) / (n - 1 - 1.5 * edf0[ish]) + 1) < 0) {stop ("The sample size n is too small to make a valid CIC for a vee shape!")}
+		if ((2 * (edf0[ish] + 1) / (n - 1 - 1.5 * edf0[ish]) + 1) < 0) {warning ("The sample size n is too small to make a valid CIC for a vee shape!")}
+#print ('vee done')
 }
 if (inc) {
 ish = ish + 1
@@ -554,15 +582,25 @@ ish = ish + 1
 		if (infocrit == "BIC") {ic[s, ish] <- n * log(sse6) + log(n) * edf0[ish]}
 		if (infocrit == "CIC") {ic[s, ish] <- log(sse6) + log(2 * (edf0[ish] + 1) / (n - 1 - 1.5 * edf0[ish]) + 1)}
 #new:
-		if ((2 * (edf0[ish] + 1) / (n - 1 - 1.5 * edf0[ish]) + 1) < 0) {stop ("The sample size n is too small to make a valid CIC for an increasing shape!")}
+		if ((2 * (edf0[ish] + 1) / (n - 1 - 1.5 * edf0[ish]) + 1) < 0) {warning ("The sample size n is too small to make a valid CIC for an increasing shape!")}
+#print ('incr done')
 #new: db choice 
 }
 if (db) {
+#new:
 ish = ish + 1
+ijp = 1 
+jjp = 4
+thb = 1:length(y)*0 
+df = 0 
+b7 = 0 
+m_i = 0
+m_j = 0
 # two jumps -- need to loop through possible jumppoints
 		m0 = length(delta) / n
 		mj =  m0 + 4
 		minsse = sum((y - mean(y))^2)
+sse7 = minsse
 		rm_vec = NULL
 		for (i in 1:(n - 4)) {
 			for (j in (i + 3):(n - 1)) {
@@ -652,11 +690,29 @@ ish = ish + 1
 		m_js0[ish] = m_j 
 		if (infocrit == "BIC") {ic[s, ish] <- n * log(sse7) + log(n) * edf0[ish]}
 #new:
-		if ((2 * (edf0[ish] + 1) / (n - 1 - 1.5 * edf0[ish]) + 1) < 0) {stop ("The sample size n is too small to make a valid CIC for a double-jump shape!")}
+		if ((2 * (edf0[ish] + 1) / (n - 1 - 1.5 * edf0[ish]) + 1) < 0) {warning ("The sample size n is too small to make a valid CIC for a double-jump shape!")}
 		if (infocrit == "CIC") {ic[s, ish] <- log(sse7) + log(2 * (edf0[ish] + 1) / (n - 1 - 1.5 * edf0[ish]) + 1)}
 }
 ### select best shape for pixel ###	
+#new: replace Inf in ic with a real number
+if (any(ic[s, ] == -Inf)) {
+	id_inf = which(ic[s, ] == -Inf)
+	if (length(id_inf) > 1) {
+		ic[s, id_inf] = -1e+3 + 0:(length(id_inf) - 1) / (length(id_inf) - 1)
+	} else {ic[s, id_inf] = -1e+3}
+}
+if (any(ic[s, ] == Inf)) {
+	id_inf = which(ic[s, ] == Inf)
+	if (length(id_inf) > 1) {
+		ic[s, id_inf] = 1e+3 - 0:(length(id_inf) - 1) / (length(id_inf) - 1)
+	} else {ic[s, id_inf] = 1e+3}
+}
 		sel = which(ic[s, ] == min(ic[s, ]))
+#print (ic)
+#new:
+if (length(sel) > 1) {
+	sel = sel[1]
+}
 		bshp = shape[sel]
 		thetab[s, ] = fit[sel, ]
 		shb[s] = bshp 
@@ -666,7 +722,9 @@ ish = ish + 1
 		m_is[[s]] = m_is0[[sel]]
 		m_js[[s]] = m_js0[[sel]]
 	}
-	ans = list(shape = shb, ic = t(ic), thetab = t(thetab), fit = t(fit), x = x0, ymat = ymat, infocrit = infocrit, k = k, bs = bs, ijps = ijps, jjps = jjps, m_is = m_is, m_js = m_js, shp_in = bool)
+#new: timer
+tm = proc.time() - ptm
+	ans = list(shape = shb, ic = t(ic), thetab = t(thetab), fit = t(fit), x = x0, ymat = ymat, infocrit = infocrit, k = k, bs = bs, ijps = ijps, jjps = jjps, m_is = m_is, m_js = m_js, shp_in = bool, tm = tm)
 	class(ans) = "ShapeSelectForest"
 	return (ans)
 }
@@ -987,7 +1045,7 @@ if (icpic) {k = 1; xlst[[1]] = 1:nrow(ic); ylst[[1]] = ic; flst[[1]] = ic; ynmls
 				} else {
 					plot(xs, ys[ ,ch], type = 'l', xaxt = 'n', ann = TRUE, xlab = '', ylab = ynm)
 					points(xs, fs[ ,ch], col = color, pch = 20, cex = 1.3)
-					abline(h = min(ys[ ,ch]), lty = 2, lwd = 2) 
+					#abline(h = min(ys[ ,ch]), lty = 2, lwd = 2) 
 					ticks = shps[1:nrow(ic)]
 					bool = 1:nrow(ic) %% 2 != 0
 					mtext(ticks[bool], side = 1, at = (1:nrow(ic))[bool], line = 1, cex = .83)	
@@ -996,7 +1054,7 @@ if (icpic) {k = 1; xlst[[1]] = 1:nrow(ic); ylst[[1]] = ic; flst[[1]] = ic; ynmls
 			} else if (j == 2) {
 				plot(xs, ys[ ,ch], type = 'l', xaxt = 'n', ann = TRUE, xlab = '', ylab = ynm)
 				points(xs, fs[ ,ch], col = color, pch = 20, cex = 1.3)
-				abline(h = min(ys[ ,ch]), lty = 2, lwd = 2) 
+				#abline(h = min(ys[ ,ch]), lty = 2, lwd = 2) 
 				ticks = shps[1:nrow(ic)]
 				if (nrow(ic) > 2) {
 					bool = 1:nrow(ic) %% 2 != 0

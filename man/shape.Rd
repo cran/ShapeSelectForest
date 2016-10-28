@@ -6,7 +6,7 @@
 
 \usage{shape(x, ymat, infocrit = "CIC", flat = TRUE, dec = TRUE, jp = TRUE, 
 invee = TRUE, vee = TRUE, inc = TRUE, db = TRUE, nsim = 1e+3, 
-edf0 = NULL, get.edf0 = FALSE, random = FALSE, msg = TRUE)}
+edf0 = NULL, get.edf0 = FALSE, random = FALSE, msg = FALSE)}
 
 \arguments{
   \item{x}{A \eqn{n} by \eqn{1} predictor vector, for example, years.}
@@ -24,7 +24,7 @@ for more details about edf0.}
   \item{edf0}{The edf0 given by the user. When \eqn{\bold{x}} is an equally spaced vector whose number of elements is between \eqn{20} and \eqn{40}. The user doesn't need to provide an edf0 vector; otherwise, the user has to set get.edf0 to be TRUE such that the shape routine will simulate an edf0 vector, or the user can choose to simulate an edf0 vector by the getedf0 routine and provide the edf0 vector to the shape routine with this argument. The default is edf0 = NULL.}
  \item{get.edf0}{A logical flag. When \eqn{\bold{x}} is not an equally spaced vector whose number of elements is between \eqn{20} and \eqn{40}. The user has to set get.edf0 to be TRUE such that the shape routine will simulate an edf0 vector, or the user can choose to simulate an edf0 vector by the ``getedf0'' routine and provide the edf0 vector to the shape routine with the edf0 argument. The default is get.edf0 = FALSE.}
  \item{random}{A parameter used by the maintainer to test if each shape option can be both included and excluded.}
-  \item{msg}{A logical flag. If msg is TRUE, then a warning message will be printed when there is a non-convergence problem; otherwise no warning message will be printed. The default is msg = TRUE}
+  \item{msg}{A logical flag. If msg is TRUE, then a warning message will be printed when there is a non-convergence problem; otherwise no warning message will be printed. The default is msg = FALSE}
 }
 
 \value{
@@ -40,6 +40,7 @@ for more details about edf0.}
   \item{jjps}{A list storing the position of the second jump for scatterplots whose best shape is double-jump.}
   \item{m_is}{A vector storing the centering values for the first ramp edge for scatterplots whose best shape is one-jump or double-jump.}
   \item{m_js}{A vector storing the centering values for the second ramp edge for scatterplots whose best shape is double-jump.}
+  \item{tm}{Total cpu running time.}
 }
 
 \details{

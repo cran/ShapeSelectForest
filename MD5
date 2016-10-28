@@ -1,8 +1,10 @@
-f7c468df08d2ce31f69f160c92b5a377 *DESCRIPTION
+2b23179cf65621826a5c2ca3829bbbbf *ChangeLog
+00e9eea6b36351e1c28d21fd6588febc *DESCRIPTION
 4b019f8e5d972f77863fe4917e1ebd24 *NAMESPACE
-e70bafed8c0c0ae2c16b6650cef1b755 *R/shape.R
+0bd6bd1798219d17fd6f674c9e5b7c2f *R/shape.R
 c5dc689f5b9ae7637a359a9b40eecc62 *data/edf0s.rda
 6225a5ada640a4503dc7e534f9a715c3 *data/ymat.rda
+4637894eb7d5acf95a1a29f1ee2e4898 *inst/CITATION
 88d03e83e332c32b647b36453cd51748 *inst/extdata/helpexamples/MINI_B5.img
 2fb305a4ecbd2d70a883195a72598cae *inst/extdata/helpexamples/MINI_FI.img
 d4f2db776f7947cf916ec4868a18b2be *inst/extdata/helpexamples/MINI_FLATPRED.img
@@ -15,8 +17,8 @@ fec9796e5f68507ac0add29f50c6d06b *man/f2a.map.jpeg.Rd
 f4b091cae4e29140037952af551e6c15 *man/f2p.raster.Rd
 06940a46175d3b34eb499d9901492ad0 *man/flat2annual.Rd
 cb7aeca84051271d8c72cf93553ebd67 *man/flat2parameter.Rd
-a30eb0bfd4a8ff156061cd0a517a952f *man/getedf0.Rd
+1dcc5e02854ad5eebf8a2373099d4551 *man/getedf0.Rd
 fd6d1bb047ce25f1d77a0cb706f30b4c *man/plotshape.Rd
-14bb62057c0c90422309f415a5385fb9 *man/shape.Rd
+43dd3026cc547222d4039ab78ef5b8a1 *man/shape.Rd
 b96f1415d87ff6e4a2f941992db32c3e *man/shapeparams.Rd
 1d5d93fe9c02028bd34ad51c7d0f1271 *man/ymat.Rd

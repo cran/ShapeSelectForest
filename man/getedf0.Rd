@@ -5,7 +5,7 @@
 An edf0 vector is the estimated "null expected degrees of freedom" for shapes allowed by the user. It is an input of the main routine "shape" and it is used to select the best shape for a scatterplot. See Meyer (2013a) and Meyer (2013b) for further details.
 } 
 \usage{getedf0(x, flat = TRUE, dec = TRUE, jp = TRUE, invee = TRUE, 
-vee = TRUE, inc = TRUE, db = TRUE, nsim = 1e+3, random = FALSE, msg = TRUE)}
+vee = TRUE, inc = TRUE, db = TRUE, nsim = 1e+3, random = FALSE, msg = FALSE)}
 
 \arguments{
   \item{x}{A \eqn{n} by \eqn{1} predictor vector, for example, years.}
@@ -18,7 +18,7 @@ vee = TRUE, inc = TRUE, db = TRUE, nsim = 1e+3, random = FALSE, msg = TRUE)}
   \item{db}{A logical flag. If it is TRUE, there is a double-jump option; otherwise, there is no such a shape option.}
   \item{nsim}{Number of simulations used to get the edf0 vector. The default is nsim = 1e+3.}
  \item{random}{A parameter used by the maintainer to test if each shape option can be both included and excluded.}
-  \item{msg}{A logical flag. If msg is TRUE, then a warning message will be printed when there is a non-convergence problem; otherwise no warning message will be printed. The default is msg = TRUE}
+  \item{msg}{A logical flag. If msg is TRUE, then a warning message will be printed when there is a non-convergence problem; otherwise no warning message will be printed. The default is msg = FALSE}
 }
 \value{
 The edf0 values for all shape options allowed by the user.

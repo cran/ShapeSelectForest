@@ -1,0 +1,5 @@
+1.13
+* intialize some parameters like thb in the main routine: shape
+* change stop into warning when CIC is invalid
+* a timer is added 
+* replace Inf in CIC with a real number 
