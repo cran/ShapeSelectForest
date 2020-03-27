@@ -25,18 +25,10 @@ tt = NULL, transpose = FALSE, plot = graphics:::plot)}
 	A plot showing the fitted trajectory of the best shape, or showing the "BIC" or "CIC" values against shapes of an object of the shape routine.
 }
 
-\references{
-The official documentation for the generic R routine plot: \url{http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/plot.html}.
-
-The official documentation for the generic R routine lines: \url{http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/lines.html}.
-
-The official documentation for the generic R routine par: \url{http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/par.html}.
-
-}
-
 \seealso{\code{\link{shape}}}
 
 \examples{
+\dontrun{
 	# import the matrix of Landsat signals 
 	data("ymat")	
 
@@ -75,7 +67,7 @@ The official documentation for the generic R routine par: \url{http://stat.ethz.
 	plotshape(ans, ids = 1:15, both = TRUE, form = TRUE, tt = tts[1:15], cex = .5)
 	plotshape(ans, ids = 16:30, both = TRUE, form = TRUE, tt = tts[16:30], lty = 2, cex = .3)
 	plotshape(ans, ids = 31:36, both = TRUE, form = TRUE, tt = tts[31:36], lty = 2, cex = .1)
-
+}
 }
 
 \author{

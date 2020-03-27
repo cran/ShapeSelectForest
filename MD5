@@ -1,7 +1,7 @@
 2b23179cf65621826a5c2ca3829bbbbf *ChangeLog
-00e9eea6b36351e1c28d21fd6588febc *DESCRIPTION
-4b019f8e5d972f77863fe4917e1ebd24 *NAMESPACE
-0bd6bd1798219d17fd6f674c9e5b7c2f *R/shape.R
+0a0e5c95a4f543b440b7c314eeeca08b *DESCRIPTION
+88d8a2e86f95bfe79a6652199943d303 *NAMESPACE
+056428b8b8f5ba7477ab617fb8f6ba91 *R/shape.R
 c5dc689f5b9ae7637a359a9b40eecc62 *data/edf0s.rda
 6225a5ada640a4503dc7e534f9a715c3 *data/ymat.rda
 4637894eb7d5acf95a1a29f1ee2e4898 *inst/CITATION
@@ -18,7 +18,7 @@ f4b091cae4e29140037952af551e6c15 *man/f2p.raster.Rd
 06940a46175d3b34eb499d9901492ad0 *man/flat2annual.Rd
 cb7aeca84051271d8c72cf93553ebd67 *man/flat2parameter.Rd
 1dcc5e02854ad5eebf8a2373099d4551 *man/getedf0.Rd
-fd6d1bb047ce25f1d77a0cb706f30b4c *man/plotshape.Rd
-43dd3026cc547222d4039ab78ef5b8a1 *man/shape.Rd
+33ecb0cfa3493ea3019d2b0007125678 *man/plotshape.Rd
+dad2142d322facfb4c539ec1cc899f1b *man/shape.Rd
 b96f1415d87ff6e4a2f941992db32c3e *man/shapeparams.Rd
 1d5d93fe9c02028bd34ad51c7d0f1271 *man/ymat.Rd

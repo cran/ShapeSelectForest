@@ -1400,7 +1400,8 @@ shapeparams = function(shapenum, ic, thetab, x) {
 
 	my.ic = ic[shapenum]
 
-	shapeparams = data.frame(shapenum, pre.rate, dist.yr, dist.mag, dist.mag2, dist.dur, post.rate, my.ic,flag, pre2.rate, dist2.yr, dist2.mag, dist2.mag2, dist2.dur, post2.rate)
+	shapeparams = data.frame(shapenum, pre.rate, dist.yr, dist.mag, dist.mag2, dist.dur, post.rate, 
+	                         my.ic,flag, pre2.rate, dist2.yr, dist2.mag, dist2.mag2, dist2.dur, post2.rate, stringsAsFactors=FALSE)
 
 ## Mop up: 
 	## missing values set to 0 and flag 6
@@ -1475,7 +1476,7 @@ grd2gri <- function(x) {
 			
 f2a.map.jpeg <- function(years, folder, OUTPUT.fn, height = 10, width = 10 * (dim(mapgrid.dist)[2] / dim(mapgrid.dist)[1]), units = "in", res = 400) {
 ### Define Color Ramp ###
-	MAP.CODES <- data.frame(row = 1:7, integercode = 0:6)
+	MAP.CODES <- data.frame(row = 1:7, integercode = 0:6, stringsAsFactors=FALSE)
 	MAP.CODES$colors <- c("white", "grey50", "red", "blue", "green4", "brown", "springgreen")
 	MAP.CODES$names <- c("Unclassified", "Conversion", "Fire", "Harvest", "Stable", "Stress", "Recovery")
 ### Define years ###
@@ -1554,7 +1555,7 @@ f2a.raster <- function(years, folder.in, folder.out, OUTPUT.fn, flat.pred.fn, IN
 	print("starting loops")
 	for (r in 1:(dim(RB)[1])) {
 		print(paste("rows =", r))
-		v <- data.frame(getValues(RB, r))
+		v <- data.frame(getValues(RB, r), stringsAsFactors=FALSE)
 	### deal with -9999 ###
 		nonPredict <- apply(((v == -9999) | is.na(v)), 1, any)
 		v.pred <- matrix(NA, nrow = nrow(v), ncol = N.years)
@@ -1606,7 +1607,7 @@ f2p.raster <- function(years, folder.in, folder.out, OUTPUT.fn, flat.pred.fn, IN
 	print("starting loops")
 	for (r in 1:(dim(RB)[1])) {
 		print(paste("rows =", r))
-		v <- data.frame(getValues(RB, r))
+		v <- data.frame(getValues(RB, r), stringsAsFactors=FALSE)
 	### deal with -9999 ###
 		nonPredict <- apply(((v == -9999)|is.na(v)), 1, any)
 		v.pred <- matrix(NA, nrow = nrow(v), ncol = 3 + N.bands)

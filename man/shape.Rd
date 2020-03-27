@@ -86,11 +86,12 @@ See references cited in this section and the official manual (\url{https://cran.
 	ans <- shape(x, ymat, "BIC")
 	plotshape(ans, ids = 1:6, both = TRUE, form = TRUE)
 }
+\dontrun{
 	# Example 2:
 	# call the shape routine not allowing a double jump shape using "CIC"
 	ans <- shape(x, ymat, "CIC", db = FALSE)
 	plotshape(ans, ids = 1:6, both = TRUE, form = TRUE)
-
+}
 }
 
 \seealso{\code{\link{plotshape}}, \code{\link{edf0s}}}

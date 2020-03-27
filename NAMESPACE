@@ -1,5 +1,5 @@
 export("shape", "plotshape", "getedf0", "shapeparams", "f2a.map.jpeg", "f2a.raster", "f2p.raster", "flat2annual", "flat2parameter")
-import("coneproj", "raster", "rgdal")
+import("coneproj", "raster")
 importFrom("grDevices", "colors", "dev.off", "jpeg")
 importFrom("graphics", "abline", "legend", "mtext", "par", "points", "title")
 importFrom("stats", "coef", "lm", "median", "rnorm")
