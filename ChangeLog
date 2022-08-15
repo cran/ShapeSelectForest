@@ -3,3 +3,6 @@
 * change stop into warning when CIC is invalid
 * a timer is added 
 * replace Inf in CIC with a real number 
+
+1.14
+* replace graphics:::plot with graphics::plot in the function plotshape

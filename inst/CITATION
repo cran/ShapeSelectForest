@@ -8,13 +8,11 @@ citEntry(entry = "Article",
   volume       = "22",
   number       = "10",
   pages        = "3518--3528",
-  url          = "http://onlinelibrary.wiley.com/wol1/doi/10.1111/gcb.13358/abstract",
 
   textVersion  =
   paste("Gretchen G. Moisen, Mary C. Meyer, Todd A. Schroeder, Xiyue Liao, Karen G. Schleeweis, Elizabeth A. Freeman, and Chris Toney (2016).",
         "Shape Selection in Landsat Time Series: A Tool for Monitoring Forest Dynamics.",
-        "Global Change Biology 22(10), 3518-3528.",
-        "URL http://onlinelibrary.wiley.com/wol1/doi/10.1111/gcb.13358/abstract.")
+        "Global Change Biology 22(10), 3518-3528.")
 )
 
 

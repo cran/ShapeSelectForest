@@ -916,7 +916,8 @@ sl = function(xinterp, knots, slopes) {
 #####################
 #make a plot of fits#
 ##################### 
-plotshape = function(object, ids = 1, color = "mediumorchid4", lty = 1, lwd = 1, cex = .83, cex.main = .93, form = TRUE, icpic = FALSE, both = TRUE, tt = NULL, transpose = FALSE, plot = graphics:::plot) {
+plotshape = function(object, ids = 1, color = "mediumorchid4", 
+                     lty = 1, lwd = 1, cex = .83, cex.main = .93, form = TRUE, icpic = FALSE, both = TRUE, tt = NULL, transpose = FALSE, plot = graphics::plot) {
 	if (!inherits(object, "ShapeSelectForest")) { 
 	        warning("calling plotpersp(<fake-ShapeSelectForest-object>) ...")
         }
