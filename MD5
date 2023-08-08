@@ -1,10 +1,10 @@
 d8b961779c56925fafc2f1712d2de74a *ChangeLog
-3f956e707d43980d8abee7ed62280266 *DESCRIPTION
+e6cba7c967560781d97c9b537512e5a0 *DESCRIPTION
 88d8a2e86f95bfe79a6652199943d303 *NAMESPACE
 4452a6608f4aae9041afaf4b679cd03a *R/shape.R
 c5dc689f5b9ae7637a359a9b40eecc62 *data/edf0s.rda
 6225a5ada640a4503dc7e534f9a715c3 *data/ymat.rda
-93e14beec18754e8b325408ac5053af9 *inst/CITATION
+5be26cda17549fb6dc38803d0d2fa9d4 *inst/CITATION
 88d03e83e332c32b647b36453cd51748 *inst/extdata/helpexamples/MINI_B5.img
 2fb305a4ecbd2d70a883195a72598cae *inst/extdata/helpexamples/MINI_FI.img
 d4f2db776f7947cf916ec4868a18b2be *inst/extdata/helpexamples/MINI_FLATPRED.img

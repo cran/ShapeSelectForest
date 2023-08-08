@@ -1,9 +1,9 @@
 Package: ShapeSelectForest
 Type: Package
 Title: Shape Selection for Landsat Time Series of Forest Dynamics
-Version: 1.5
-Date: 2022-08-15
-Authors@R: c(person("Xiyue", "Liao", email = "xiyue.liao@csulb.edu", role = c("aut", "cre"),
+Version: 1.6
+Date: 2023-08-08
+Authors@R: c(person("Xiyue", "Liao", email = "xliao@sdsu.edu", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-4508-9219")),
     person("Mary", "Meyer", role = "aut"), 
     person("Elizabeth", "Freeman", role = "aut"), 
@@ -14,11 +14,11 @@ License: GPL (>= 2)
 Depends: coneproj (>= 1.6), raster (>= 2.3-40), R (>= 3.0.2)
 NeedsCompilation: no
 Suggests: stats, MASS, graphics, grDevices, utils
-Packaged: 2022-08-15 14:45:03 UTC; xiyueliao
+Packaged: 2023-08-07 23:00:49 UTC; xliao
 Author: Xiyue Liao [aut, cre] (<https://orcid.org/0000-0002-4508-9219>),
   Mary Meyer [aut],
   Elizabeth Freeman [aut],
   Gretchen Moisen [aut]
-Maintainer: Xiyue Liao <xiyue.liao@csulb.edu>
+Maintainer: Xiyue Liao <xliao@sdsu.edu>
 Repository: CRAN
-Date/Publication: 2022-08-15 18:30:13 UTC
+Date/Publication: 2023-08-08 07:30:10 UTC

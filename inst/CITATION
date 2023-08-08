@@ -1,8 +1,17 @@
 citHeader("To cite ShapeSelectForest in publications use:")
 
-citEntry(entry = "Article",
+bibentry(
+  bibtype = "Article",
   title        = "Shape Selection in Landsat Time Series: A Tool for Monitoring Forest Dynamics",
-  author       = personList(as.person("Gretchen G. Moisen"), as.person("Mary C. Meyer"),as.person("Todd A. Schroeder"),as.person("Xiyue Liao"),as.person("Karen G. Schleeweis"),as.person("Elizabeth A. Freeman"),as.person("Chris Toney")),
+  author = c(
+    person(c("Gretchen", "G."), "Moisen", role = c("aut")),
+    person(c("Mary", "C."), "Meyer", role = c("aut")),
+    person(c("Todd", "A."), "Schroeder", role = c("aut")),
+    person("Xiyue", "Liao", role = c("aut", "cre")),
+    person(c("Karen", "G."), "Schleeweis", role = c("aut")),
+    person(c("Elizabeth", "A."), "Freeman", role = c("aut")),
+    person("Chris", "Toney", role = c("aut"))
+  ),
   journal      = "Global Change Biology",
   year         = "2016",
   volume       = "22",
