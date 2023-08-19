@@ -21,17 +21,6 @@ The shape with the smallest information criterion may be considered a "best" fit
 The main routine to select the shape for a scatterplot is "shape". See \code{\link{shape}} for more details.
 }
 
-\details{
-\tabular{ll}{
-Package: \tab ShapeSelectForest\cr
-Type: \tab Package\cr
-Version: \tab 1.2\cr
-Date: \tab 2015-12-25\cr
-License: \tab GPL (>= 2)\cr
-}
-}
-
-
 \references{
 
 Meyer, M. C. and Woodroofe M (2000) On the Degrees of Freedom in Shape-Restricted Regression. \emph{The Annals of Statistics \bold{28}}, 1083--1104.

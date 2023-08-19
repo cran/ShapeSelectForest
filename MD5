@@ -1,5 +1,5 @@
 d8b961779c56925fafc2f1712d2de74a *ChangeLog
-e6cba7c967560781d97c9b537512e5a0 *DESCRIPTION
+5048c3de66f37b63801203262492b3bf *DESCRIPTION
 88d8a2e86f95bfe79a6652199943d303 *NAMESPACE
 4452a6608f4aae9041afaf4b679cd03a *R/shape.R
 c5dc689f5b9ae7637a359a9b40eecc62 *data/edf0s.rda
@@ -10,7 +10,7 @@ c5dc689f5b9ae7637a359a9b40eecc62 *data/edf0s.rda
 d4f2db776f7947cf916ec4868a18b2be *inst/extdata/helpexamples/MINI_FLATPRED.img
 d9c5364aff7e8a2e4db95dbd6e68214e *inst/extdata/helpexamples/MINI_NBR.img
 e6b5efafc5e42f074a3495d4c1c76ada *inst/extdata/helpexamples/MINI_NDVI.img
-29a9f408cee1a70c18890b42de234094 *man/ShapeSelectForest-package.Rd
+111465854c16bf3890294ba48ba9240c *man/ShapeSelectForest-package.Rd
 467ca950776ba67819695212b07481b4 *man/edf0s.Rd
 fec9796e5f68507ac0add29f50c6d06b *man/f2a.map.jpeg.Rd
 414f73a5137d7489f1f5c002cb56055a *man/f2a.raster.Rd
